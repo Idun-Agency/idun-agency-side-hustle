@@ -341,6 +341,13 @@ const Contact = () =>
       </p>
         <div className="space-y-3">
           <a
+          href="mailto:carin.lagerstedt@idunagency.com"
+          className="inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase border-b-2 border-primary pb-1 hover:gap-4 transition-all duration-300">
+          
+            Email me <ArrowRight className="w-4 h-4" />
+          </a>
+          <br />
+          <a
           href="https://www.linkedin.com/in/carinlagerstedt/"
           target="_blank"
           rel="noreferrer"
