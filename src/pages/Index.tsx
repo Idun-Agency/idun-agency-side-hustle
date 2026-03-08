@@ -172,6 +172,9 @@ const engagements = [
     period: "March 2025 – Present",
     description:
       "Shaping external communication strategy and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
+    url: "https://semiconsweden.com",
+    accentColor: "#1a3a5c",
+    tagline: "Semiconductor Ecosystem",
   },
   {
     name: "Strainlabs",
@@ -179,6 +182,9 @@ const engagements = [
     period: "Sep 2022 – Jan 2025",
     description:
       "Led strategic marketing, branding and content production. Supported a smooth handover by coaching the incoming full-time marketing hire.",
+    url: "https://strainlabs.com",
+    accentColor: "#c0392b",
+    tagline: "Smart Bolt Monitoring",
   },
   {
     name: "Ignite Sweden",
@@ -186,6 +192,9 @@ const engagements = [
     period: "Apr 2022 – Present",
     description:
       "Coaching & courses for startups on branding and content marketing to accelerate sales and build thought leadership positions.",
+    url: "https://www.ignitesweden.org",
+    accentColor: "#a3195b",
+    tagline: "Startup Innovation",
   },
 ];
 
@@ -201,29 +210,46 @@ const Engagements = () => (
       >
         Selected engagements.
       </motion.h2>
-      <div className="space-y-0 divide-y divide-border">
+      <div className="grid md:grid-cols-3 gap-6">
         {engagements.map((e, i) => (
-          <motion.div
+          <motion.a
             key={e.name}
-            initial={{ opacity: 0, y: 16 }}
+            href={e.url}
+            target="_blank"
+            rel="noreferrer"
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="py-8 first:pt-0 last:pb-0"
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+            className="group rounded-lg overflow-hidden border border-border bg-background hover:shadow-md transition-all duration-300"
           >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
-              <div>
-                <h3 className="font-display text-xl">{e.name}</h3>
-                <p className="text-sm text-secondary font-medium">{e.role}</p>
+            <div
+              className="h-2"
+              style={{ backgroundColor: e.accentColor }}
+            />
+            <div className="p-6">
+              <div className="mb-4">
+                <h3 className="font-display text-xl mb-1 group-hover:text-primary transition-colors">
+                  {e.name}
+                </h3>
+                <p
+                  className="text-[10px] font-display font-medium tracking-[0.15em] uppercase"
+                  style={{ color: e.accentColor }}
+                >
+                  {e.tagline}
+                </p>
               </div>
-              <p className="text-sm text-muted-foreground md:text-right">
+              <span className="inline-block text-xs font-display font-semibold tracking-wide uppercase px-3 py-1 rounded-full bg-muted text-foreground mb-4">
+                {e.role}
+              </span>
+              <p className="text-muted-foreground leading-relaxed text-sm mb-4">
+                {e.description}
+              </p>
+              <p className="text-xs text-muted-foreground font-display tracking-wide">
                 {e.period}
               </p>
             </div>
-            <p className="text-muted-foreground leading-relaxed text-sm max-w-2xl">
-              {e.description}
-            </p>
-          </motion.div>
+          </motion.a>
         ))}
       </div>
     </div>
