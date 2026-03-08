@@ -103,8 +103,7 @@ const About = () =>
             <a href="https://remotivelabs.com" target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-4 decoration-accent hover:decoration-primary transition-colors">
               RemotiveLabs
             </a>
-            , helping automotive teams shift left and adopt modern software practices. 
-            It's a steep learning curve — and I love every bit of it.
+            , helping automotive teams shift-left and adopt modern software practices.
           </p>
           <p>One day a week, I consult a few carefully selected brands and topics through Idun Agency. I deeply enjoy the variety of challenges. Good things come to those who grit.
 
@@ -238,7 +237,7 @@ const engagements = [
   role: "Communications Lead",
   period: "March 2025 – Present",
   description:
-  "Shaping external communication strategy and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
+  "Communication strategy, execution and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
   url: "https://semiconsweden.com",
   accentColor: "#D4A574",
   tagline: "Semiconductor Ecosystem"
