@@ -112,6 +112,29 @@ const About = () => (
   </section>
 );
 
+const services = [
+  {
+    title: "Positioning & Messaging",
+    description:
+      "Clarifying what you stand for and how to say it — tailored for technical and niche B2B contexts.",
+  },
+  {
+    title: "Content Strategy",
+    description:
+      "Building thought leadership positions through content that resonates with engineers and decision-makers alike.",
+  },
+  {
+    title: "Solution Marketing",
+    description:
+      "Translating complex technical products into clear, compelling narratives that drive engagement.",
+  },
+  {
+    title: "Branding & Identity",
+    description:
+      "From visual identity to brand voice — creating cohesive brands for industrial tech companies.",
+  },
+];
+
 const gridPatterns = [
   // Grid & Dot pattern
   () => (
