@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import IdunLogo from "@/components/IdunLogo";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -18,7 +19,7 @@ const Hero = () => (
         animate="visible"
         custom={0}
         variants={fadeUp}
-        className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-6"
+        className="text-sm font-medium tracking-[0.2em] uppercase text-accent-foreground mb-6"
       >
         Idun Agency AB
       </motion.p>
@@ -31,7 +32,7 @@ const Hero = () => (
       >
         Making complex
         <br />
-        <span className="italic text-primary">industrial tech</span>
+        <span className="text-primary">industrial tech</span>
         <br />
         more relatable.
       </motion.h1>
@@ -74,7 +75,7 @@ const About = () => (
           <h2 className="font-display text-3xl md:text-4xl mb-6">
             A side project
             <br />
-            <span className="italic">born from curiosity.</span>
+            born from curiosity.
           </h2>
         </motion.div>
         <motion.div
@@ -213,7 +214,7 @@ const Engagements = () => (
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
               <div>
                 <h3 className="font-display text-xl">{e.name}</h3>
-                <p className="text-sm text-accent font-medium">{e.role}</p>
+                <p className="text-sm text-secondary font-medium">{e.role}</p>
               </div>
               <p className="text-sm text-muted-foreground md:text-right">
                 {e.period}
@@ -267,8 +268,8 @@ const Contact = () => (
 const Nav = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
     <div className="container max-w-5xl flex items-center justify-between h-14">
-      <a href="#" className="font-display text-lg">
-        Idun Agency
+      <a href="#">
+        <IdunLogo />
       </a>
       <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
         <a href="#about" className="hover:text-foreground transition-colors">About</a>
