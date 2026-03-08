@@ -72,6 +72,9 @@ const About = () => (
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
+          <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
+            Idun Agency AB
+          </p>
           <h2 className="font-display text-3xl md:text-4xl mb-6">
             A side project
             <br />
