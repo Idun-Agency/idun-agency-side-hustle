@@ -42,7 +42,7 @@ const Hero = () =>
       animate="visible"
       custom={2}
       variants={fadeUp}
-      className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">I'm Carin Lagerstedt - a branding and communications consultant specializing in industrial and B2B. I run Idun Agency on the side of my full-time role at an automotive software startup because I genuinely enjoy it, and because it makes me sharper at what I do.
+      className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10">I'm Carin Lagerstedt - a part-time branding and communications consultant specializing in industrial and B2B. I run Idun Agency alongside my role at an automotive software startup in Malmö, helping make complex ideas easier to communicate. I enjoy working with clever people and solving communication puzzles.
 
 
 
