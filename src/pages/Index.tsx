@@ -135,77 +135,11 @@ const services = [
   },
 ];
 
-const gridPatterns = [
-  // Grid & Dot pattern
-  () => (
-    <svg width="100%" height="100%" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full opacity-40">
-      <defs>
-        <pattern id="pg" width="36" height="36" patternUnits="userSpaceOnUse">
-          <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#7AB89A" strokeWidth="0.5" opacity="0.4" />
-        </pattern>
-      </defs>
-      <rect width="360" height="180" fill="url(#pg)" />
-      <circle cx="72" cy="72" r="3" fill="#2A7A5A" opacity="0.5" />
-      <circle cx="180" cy="36" r="3" fill="#E8445A" opacity="0.4" />
-      <circle cx="288" cy="108" r="3" fill="#2A7A5A" opacity="0.5" />
-      <circle cx="144" cy="144" r="2.5" fill="#E8445A" opacity="0.3" />
-      <rect x="20" y="20" width="3" height="140" rx="1.5" fill="#2A7A5A" opacity="0.1" />
-    </svg>
-  ),
-  // Signal lines
-  () => (
-    <svg width="100%" height="100%" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full opacity-30">
-      <defs>
-        <linearGradient id="sl1a" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#2A7A5A" stopOpacity="0" />
-          <stop offset="45%" stopColor="#7AB89A" stopOpacity="0.7" />
-          <stop offset="100%" stopColor="#E8445A" stopOpacity="0.4" />
-        </linearGradient>
-        <linearGradient id="sl2a" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#E8445A" stopOpacity="0" />
-          <stop offset="55%" stopColor="#E8445A" stopOpacity="0.3" />
-          <stop offset="100%" stopColor="#2A7A5A" stopOpacity="0" />
-        </linearGradient>
-      </defs>
-      <line x1="0" y1="50" x2="360" y2="60" stroke="url(#sl1a)" strokeWidth="1.5" />
-      <line x1="0" y1="90" x2="360" y2="85" stroke="url(#sl2a)" strokeWidth="1" />
-      <line x1="0" y1="130" x2="360" y2="140" stroke="url(#sl1a)" strokeWidth="0.8" opacity="0.5" />
-    </svg>
-  ),
-  // Funnel bars
-  () => (
-    <svg width="100%" height="100%" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full opacity-25">
-      <defs>
-        <linearGradient id="fg1a" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#E8445A" />
-          <stop offset="100%" stopColor="#2A7A5A" />
-        </linearGradient>
-      </defs>
-      <rect x="30" y="30" width="300" height="14" rx="3" fill="url(#fg1a)" opacity="0.7" />
-      <rect x="60" y="56" width="240" height="14" rx="3" fill="url(#fg1a)" opacity="0.5" />
-      <rect x="90" y="82" width="180" height="14" rx="3" fill="url(#fg1a)" opacity="0.35" />
-      <rect x="120" y="108" width="120" height="14" rx="3" fill="url(#fg1a)" opacity="0.25" />
-      <rect x="140" y="134" width="80" height="14" rx="3" fill="url(#fg1a)" opacity="0.6" />
-    </svg>
-  ),
-  // Dot matrix
-  () => (
-    <svg width="100%" height="100%" viewBox="0 0 360 180" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full opacity-30">
-      {Array.from({ length: 8 }).map((_, row) =>
-        Array.from({ length: 12 }).map((_, col) => (
-          <circle
-            key={`${row}-${col}`}
-            cx={30 + col * 28}
-            cy={20 + row * 22}
-            r={(row + col) % 3 === 0 ? 3 : 1.5}
-            fill={(row + col) % 5 === 0 ? "#E8445A" : "#2A7A5A"}
-            opacity={(row + col) % 3 === 0 ? 0.6 : 0.3}
-          />
-        ))
-      )}
-      <rect x="15" y="10" width="3" height="160" rx="1.5" fill="#2A7A5A" opacity="0.15" />
-    </svg>
-  ),
+const serviceStyles = [
+  { bg: "bg-[#0D1F16]", accent: "#2A7A5A", accentLight: "#7AB89A" },
+  { bg: "bg-[#1a0a10]", accent: "#E8445A", accentLight: "#f08895" },
+  { bg: "bg-[#0f1a2a]", accent: "#4a8fbf", accentLight: "#7AB89A" },
+  { bg: "bg-[#1a1510]", accent: "#E8445A", accentLight: "#2A7A5A" },
 ];
 
 const Services = () => (
@@ -220,9 +154,9 @@ const Services = () => (
       >
         What I help with.
       </motion.h2>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2 gap-6">
         {services.map((s, i) => {
-          const Pattern = gridPatterns[i % gridPatterns.length];
+          const style = serviceStyles[i];
           return (
             <motion.div
               key={s.title}
@@ -230,13 +164,51 @@ const Services = () => (
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="rounded-lg bg-card border border-border overflow-hidden group"
+              className={`rounded-lg overflow-hidden border border-border group hover:border-[${style.accent}]/30 transition-all duration-500`}
             >
-              {/* Visual pattern header */}
-              <div className="relative h-28 overflow-hidden">
-                <Pattern />
+              {/* Visual header */}
+              <div className={`relative h-32 ${style.bg} overflow-hidden`}>
+                <svg width="100%" height="100%" viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" className="absolute inset-0">
+                  <defs>
+                    <linearGradient id={`grad-${i}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor={style.accent} stopOpacity="0.6" />
+                      <stop offset="100%" stopColor={style.accentLight} stopOpacity="0.2" />
+                    </linearGradient>
+                    <pattern id={`grid-${i}`} width="32" height="32" patternUnits="userSpaceOnUse">
+                      <path d="M 32 0 L 0 0 0 32" fill="none" stroke={style.accent} strokeWidth="0.6" opacity="0.35" />
+                    </pattern>
+                  </defs>
+                  {/* Grid background */}
+                  <rect width="400" height="140" fill={`url(#grid-${i})`} />
+                  {/* Accent bar (brand motif) */}
+                  <rect x="24" y="16" width="4" height="108" rx="2" fill={style.accent} opacity="0.7" />
+                  {/* Gradient glow */}
+                  <circle cx={200 + i * 40} cy={70} r="100" fill={`url(#grad-${i})`} opacity="0.4" />
+                  {/* Decorative dots at grid intersections */}
+                  {[64, 128, 192, 256, 320].map((x) =>
+                    [32, 64, 96].map((y) => (
+                      <circle
+                        key={`${x}-${y}`}
+                        cx={x}
+                        cy={y}
+                        r={Math.random() > 0.6 ? 3 : 1.5}
+                        fill={(x + y) % 128 === 0 ? style.accent : style.accentLight}
+                        opacity={(x + y) % 64 === 0 ? 0.8 : 0.3}
+                      />
+                    ))
+                  )}
+                </svg>
+                {/* Service label overlay */}
+                <div className="absolute bottom-3 left-8 right-4">
+                  <span
+                    className="font-display text-[10px] font-medium tracking-[0.2em] uppercase"
+                    style={{ color: style.accentLight }}
+                  >
+                    {String(i + 1).padStart(2, "0")} · Service
+                  </span>
+                </div>
               </div>
-              <div className="p-8 pt-6">
+              <div className="p-7 bg-card">
                 <h3 className="font-display text-xl mb-3">{s.title}</h3>
                 <p className="text-muted-foreground leading-relaxed text-sm">
                   {s.description}
