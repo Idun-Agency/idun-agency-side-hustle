@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import IdunLogo from "@/components/IdunLogo";
+import carinPortrait from "@/assets/carin-portrait.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -75,11 +76,20 @@ const About = () => (
           <p className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-4">
             Idun Agency AB
           </p>
-          <h2 className="font-display text-3xl md:text-4xl mb-6">
+          <h2 className="font-display text-3xl md:text-4xl mb-8">
             A side project
             <br />
             born from curiosity.
           </h2>
+          <motion.img
+            src={carinPortrait}
+            alt="Carin Lagerstedt"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="w-full rounded-lg object-cover"
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
