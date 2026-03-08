@@ -138,7 +138,7 @@ const services = [
 const serviceStyles = [
   { bg: "bg-[#0D1F16]", accent: "#2A7A5A", accentLight: "#7AB89A" },
   { bg: "bg-[#1a0a10]", accent: "#E8445A", accentLight: "#f08895" },
-  { bg: "bg-[#0f1a2a]", accent: "#4a8fbf", accentLight: "#7AB89A" },
+  { bg: "bg-[#1f1a12]", accent: "#C8A96E", accentLight: "#F5F0E8" },
   { bg: "bg-[#1a1510]", accent: "#E8445A", accentLight: "#2A7A5A" },
 ];
 
