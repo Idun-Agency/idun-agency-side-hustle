@@ -237,7 +237,7 @@ const engagements = [
   role: "Communications Lead",
   period: "March 2025 – Present",
   description:
-  "Shaping external communication strategy and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
+  "Communication strategy, execution and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
   url: "https://semiconsweden.com",
   accentColor: "#D4A574",
   tagline: "Semiconductor Ecosystem"
