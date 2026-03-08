@@ -14,15 +14,15 @@ const fadeUp = {
 const Hero = () => (
   <section className="min-h-[85vh] flex items-center">
     <div className="container max-w-5xl py-20">
-      <motion.p
+      <motion.div
         initial="hidden"
         animate="visible"
         custom={0}
         variants={fadeUp}
-        className="text-sm font-medium tracking-[0.2em] uppercase text-accent-foreground mb-6"
+        className="mb-10"
       >
-        Idun Agency AB
-      </motion.p>
+        <IdunLogo variant="hero" />
+      </motion.div>
       <motion.h1
         initial="hidden"
         animate="visible"
