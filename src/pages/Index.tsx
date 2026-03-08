@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import IdunLogo from "@/components/IdunLogo";
+import carinPortrait from "@/assets/carin-portrait.jpg";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
