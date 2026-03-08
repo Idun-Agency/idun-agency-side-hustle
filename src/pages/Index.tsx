@@ -1,13 +1,297 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" as const },
+  }),
+};
+
+const Hero = () => (
+  <section className="min-h-[85vh] flex items-center">
+    <div className="container max-w-5xl py-20">
+      <motion.p
+        initial="hidden"
+        animate="visible"
+        custom={0}
+        variants={fadeUp}
+        className="text-sm font-medium tracking-[0.2em] uppercase text-accent mb-6"
+      >
+        Idun Agency AB
+      </motion.p>
+      <motion.h1
+        initial="hidden"
+        animate="visible"
+        custom={1}
+        variants={fadeUp}
+        className="font-display text-5xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight mb-8"
+      >
+        Making complex
+        <br />
+        <span className="italic text-primary">industrial tech</span>
+        <br />
+        more relatable.
+      </motion.h1>
+      <motion.p
+        initial="hidden"
+        animate="visible"
+        custom={2}
+        variants={fadeUp}
+        className="text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed mb-10"
+      >
+        I'm Carin Lagerstedt — a branding and communications consultant 
+        specializing in automotive and industrial B2B. I run Idun Agency on the side 
+        of my full-time role because I genuinely enjoy it, and because every 
+        engagement makes me sharper at what I do.
+      </motion.p>
+      <motion.a
+        initial="hidden"
+        animate="visible"
+        custom={3}
+        variants={fadeUp}
+        href="#work"
+        className="inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase border-b-2 border-primary pb-1 hover:gap-4 transition-all duration-300"
+      >
+        See what I do <ArrowRight className="w-4 h-4" />
+      </motion.a>
+    </div>
+  </section>
+);
+
+const About = () => (
+  <section className="py-24 bg-card" id="about">
+    <div className="container max-w-5xl">
+      <div className="grid md:grid-cols-2 gap-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="font-display text-3xl md:text-4xl mb-6">
+            A side project
+            <br />
+            <span className="italic">born from curiosity.</span>
+          </h2>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="space-y-5 text-muted-foreground leading-relaxed"
+        >
+          <p>
+            Most of my days are spent as CMO at{" "}
+            <a href="https://remotivelabs.com" target="_blank" rel="noreferrer" className="text-foreground underline underline-offset-4 decoration-accent hover:decoration-primary transition-colors">
+              RemotiveLabs
+            </a>
+            , helping automotive teams shift left and adopt modern software practices. 
+            It's a steep learning curve — and I love every bit of it.
+          </p>
+          <p>
+            One day a week, I consult a few carefully selected brands and topics 
+            through Idun Agency. It accelerates my learnings, keeps me sharp, 
+            and honestly — I just enjoy the variety. Good things come to those who grit.
+          </p>
+          <p>
+            I'm in the industrial B2B marketing and communications space. My things 
+            are content strategies that create thought leadership positions, and 
+            solution marketing that makes complicated topics more relatable.
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
+const services = [
+  {
+    title: "Positioning & Messaging",
+    description:
+      "Clarifying what you stand for and how to say it — tailored for technical and niche B2B contexts.",
+  },
+  {
+    title: "Content Strategy",
+    description:
+      "Building thought leadership positions through content that resonates with engineers and decision-makers alike.",
+  },
+  {
+    title: "Solution Marketing",
+    description:
+      "Translating complex technical products into clear, compelling narratives that drive engagement.",
+  },
+  {
+    title: "Branding & Identity",
+    description:
+      "From visual identity to brand voice — creating cohesive brands for industrial tech companies.",
+  },
+];
+
+const Services = () => (
+  <section className="py-24" id="work">
+    <div className="container max-w-5xl">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="font-display text-3xl md:text-4xl mb-16"
+      >
+        What I help with.
+      </motion.h2>
+      <div className="grid md:grid-cols-2 gap-8">
+        {services.map((s, i) => (
+          <motion.div
+            key={s.title}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="p-8 rounded-lg bg-card border border-border"
+          >
+            <h3 className="font-display text-xl mb-3">{s.title}</h3>
+            <p className="text-muted-foreground leading-relaxed text-sm">
+              {s.description}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const engagements = [
+  {
+    name: "Semicon Sweden",
+    role: "Communications Lead",
+    period: "March 2025 – Present",
+    description:
+      "Shaping external communication strategy and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
+  },
+  {
+    name: "Strainlabs",
+    role: "Fractional CMO",
+    period: "Sep 2022 – Jan 2025",
+    description:
+      "Led strategic marketing, branding and content production. Supported a smooth handover by coaching the incoming full-time marketing hire.",
+  },
+  {
+    name: "Ignite Sweden",
+    role: "Business Coach",
+    period: "Apr 2022 – Present",
+    description:
+      "Coaching & courses for startups on branding and content marketing to accelerate sales and build thought leadership positions.",
+  },
+];
+
+const Engagements = () => (
+  <section className="py-24 bg-card" id="engagements">
+    <div className="container max-w-5xl">
+      <motion.h2
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="font-display text-3xl md:text-4xl mb-16"
+      >
+        Selected engagements.
+      </motion.h2>
+      <div className="space-y-0 divide-y divide-border">
+        {engagements.map((e, i) => (
+          <motion.div
+            key={e.name}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="py-8 first:pt-0 last:pb-0"
+          >
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-3">
+              <div>
+                <h3 className="font-display text-xl">{e.name}</h3>
+                <p className="text-sm text-accent font-medium">{e.role}</p>
+              </div>
+              <p className="text-sm text-muted-foreground md:text-right">
+                {e.period}
+              </p>
+            </div>
+            <p className="text-muted-foreground leading-relaxed text-sm max-w-2xl">
+              {e.description}
+            </p>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const Contact = () => (
+  <section className="py-24" id="contact">
+    <div className="container max-w-5xl">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="max-w-2xl"
+      >
+        <h2 className="font-display text-3xl md:text-4xl mb-6">
+          Let's talk.
+        </h2>
+        <p className="text-muted-foreground leading-relaxed mb-8">
+          I take on a limited number of engagements alongside my full-time role. 
+          If you think we could be a good fit, I'd love to hear from you.
+        </p>
+        <div className="space-y-3">
+          <a
+            href="https://www.linkedin.com/in/carinlagerstedt/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-wide uppercase border-b-2 border-primary pb-1 hover:gap-4 transition-all duration-300"
+          >
+            Connect on LinkedIn <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+        <p className="text-xs text-muted-foreground mt-12">
+          Idun Agency AB · Malmö, Sweden
+        </p>
+      </motion.div>
+    </div>
+  </section>
+);
+
+const Nav = () => (
+  <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <div className="container max-w-5xl flex items-center justify-between h-14">
+      <a href="#" className="font-display text-lg">
+        Idun Agency
+      </a>
+      <div className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
+        <a href="#about" className="hover:text-foreground transition-colors">About</a>
+        <a href="#work" className="hover:text-foreground transition-colors">Services</a>
+        <a href="#engagements" className="hover:text-foreground transition-colors">Engagements</a>
+        <a href="#contact" className="hover:text-foreground transition-colors">Contact</a>
+      </div>
+    </div>
+  </nav>
+);
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <>
+      <Nav />
+      <main className="pt-14">
+        <Hero />
+        <About />
+        <Services />
+        <Engagements />
+        <Contact />
+      </main>
+    </>
   );
 };
 
