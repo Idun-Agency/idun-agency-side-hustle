@@ -240,18 +240,8 @@ const engagements = [
     description:
       "Shaping external communication strategy and producing content to position Sweden as a key player in the global semiconductor ecosystem.",
     url: "https://semiconsweden.com",
-    accentColor: "#1a3a5c",
+    accentColor: "#D4A574",
     tagline: "Semiconductor Ecosystem",
-  },
-  {
-    name: "Strainlabs",
-    role: "Fractional CMO",
-    period: "Sep 2022 – Jan 2025",
-    description:
-      "Led strategic marketing, branding and content production. Supported a smooth handover by coaching the incoming full-time marketing hire.",
-    url: "https://strainlabs.com",
-    accentColor: "#c0392b",
-    tagline: "Smart Bolt Monitoring",
   },
   {
     name: "Ignite Sweden",
@@ -262,6 +252,16 @@ const engagements = [
     url: "https://www.ignitesweden.org",
     accentColor: "#a3195b",
     tagline: "Startup Innovation",
+  },
+  {
+    name: "Strainlabs",
+    role: "Fractional CMO",
+    period: "Sep 2022 – Jan 2025",
+    description:
+      "Led strategic marketing, branding and content production. Supported a smooth handover by coaching the incoming full-time marketing hire.",
+    url: "https://strainlabs.com",
+    accentColor: "#808080",
+    tagline: "Smart Bolt Monitoring",
   },
 ];
 
