@@ -88,7 +88,7 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="w-full rounded-lg object-cover"
+            className="h-80 w-auto rounded-lg object-cover"
           />
         </motion.div>
         <motion.div
